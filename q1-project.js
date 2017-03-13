@@ -33,30 +33,33 @@ function findLocation(event){
 }
 
 var summary;
-
 function getActivity(summary){
  var activity = ''
+ summary = summary.toLowerCase()
  if (summary.includes('snow')||summary.includes('blizzard')||summary.includes('freezing')){
    activity =  'ski'
    $('body').append("Go skiing!")
  }
  else if (summary.includes('no precipitation')||summary.includes('warm')) {
    activity = 'hike'
+   //call hiking api function here
    $('body').append('Go for a hike!')
  }
  else if (summary.includes('rain')||summary.includes('dropping')){
    activity = 'drink'
+   //call beer api function here
    $('body').append("Check out a brewery!")
+ }
+ else {
+   $('body').append("You should probably start over and try again.")
  }
 }
 
 function  getForecast(){
   var url = 'https://galvanize-cors.herokuapp.com/https://api.darksky.net/forecast/5816e128ecf24590e8e5af9d7b34dc03/'
   url +=(locations+'?currently')
-  // console.log(url);
   $.get(url)
   .then(function(data) {
-    // console.log(data);
     summary = data.daily.summary
     console.log(summary);
     getActivity(summary)
