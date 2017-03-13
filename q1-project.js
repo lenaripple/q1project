@@ -1,7 +1,7 @@
 $('document').ready(function(){
   $('#submitForm').on("click", findDate)
   $('#submitForm').on("click", findLocation)
-  $('#submitForm').on("click", getForecast);
+  $('#submitForm').on("click", getForecast)
 });
 
 var locations;
@@ -25,49 +25,43 @@ function findLocation(event){
   else if (locations==="Fort Collins"){
     locations = '40.5853,-105.0844';
   }
-  else if (locations==="Colorado Springs"){
-    locations ='38.8339,-104.8214'
+  else if (locations==="Vail"){
+    locations ='39.6403,-106.3742'
   }
   parseInt(locations)
   console.log(locations);
 }
 
+var summary;
+
+function getActivity(summary){
+ var activity = ''
+ if (summary.includes('snow')||summary.includes('blizzard')||summary.includes('freezing')){
+   activity =  'ski'
+   $('body').append("Go skiing!")
+ }
+ else if (summary.includes('no precipitation')||summary.includes('warm')) {
+   activity = 'hike'
+   $('body').append('Go for a hike!')
+ }
+ else if (summary.includes('rain')||summary.includes('dropping')){
+   activity = 'drink'
+   $('body').append("Check out a brewery!")
+ }
+}
+
 function  getForecast(){
   var url = 'https://galvanize-cors.herokuapp.com/https://api.darksky.net/forecast/5816e128ecf24590e8e5af9d7b34dc03/'
-  url +=(locations)
-  console.log(url);
+  url +=(locations+'?currently')
+  // console.log(url);
   $.get(url)
   .then(function(data) {
-    console.log(data);
-    var summary = data.daily.data.summary;
-    updatePage(summary)
-    showMessage()
+    // console.log(data);
+    summary = data.daily.summary
+    console.log(summary);
+    getActivity(summary)
     })
     .catch(function(error){
       console.log(error);
     })
   }
-
-// function updatePage(summary){
-//   console.log(summary);
-//   $('body').append(summary)
-//   }
-
-// function showMessage() {
-//   $('body').append('Have fun!')
-//   }
-
-
-// function forecast(weather){
-//   weather=type
-//   if (weather==='rain'){
-//     $('body').append("Check out a brewery!")
-//   }
-//   else if (weather==='snow'){
-//     $('body').append("Go skiing!")
-//   }
-//   else if (weather==="sunny"){
-//     $('body').append('Go for a hike!')
-//   }
-//   else "Try again, we're all out of ideas."
-// }
