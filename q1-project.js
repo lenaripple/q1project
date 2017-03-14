@@ -2,6 +2,8 @@ $('document').ready(function(){
   $('#submitForm').on("click", findDate)
   $('#submitForm').on("click", findLocation)
   $('#submitForm').on("click", getForecast)
+  $('#submitForm').on("click", getBeer)
+
 });
 
 var locations;
@@ -22,8 +24,8 @@ function findLocation(event){
   else if (locations==="Boulder"){
     locations = '40.0150,-105.2705'
   }
-  else if (locations==="Fort Collins"){
-    locations = '40.5853,-105.0844';
+  else if (locations==="Telluride"){
+    locations = '37.9375,-107.8123';
   }
   else if (locations==="Vail"){
     locations ='39.6403,-106.3742'
@@ -34,21 +36,16 @@ function findLocation(event){
 
 var summary;
 function getActivity(summary){
- var activity = ''
  summary = summary.toLowerCase()
  if (summary.includes('snow')||summary.includes('blizzard')||summary.includes('freezing')){
-   activity =  'ski'
    $('body').append("Go skiing!")
  }
  else if (summary.includes('no precipitation')||summary.includes('warm')) {
-   activity = 'hike'
    //call hiking api function here
    $('body').append('Go for a hike!')
  }
  else if (summary.includes('rain')||summary.includes('dropping')){
-   activity = 'drink'
-   //call beer api function here
-   $('body').append("Check out a brewery!")
+   getBeer()
  }
  else {
    $('body').append("You should probably start over and try again.")
@@ -62,7 +59,34 @@ function  getForecast(){
   .then(function(data) {
     summary = data.daily.summary
     console.log(summary);
-    getActivity(summary)
+    })
+    .catch(function(error){
+      console.log(error);
+    })
+  }
+
+function getBeer(){
+  if (locations==='39.7392,-104.9903'){
+    locations = 'denver'
+  }
+  else if (locations==='40.0150,-105.2705'){
+    locations = 'boulder'
+  }
+  else if (locations==='37.9375,-107.8123'){
+    locations = 'Telluride';
+  }
+  else if (locations==='39.6403,-106.3742'){
+    locations ='vail'
+  }
+  var url = 'https://galvanize-cors.herokuapp.com/http://beermapping.com/webservice/locquery/7e4c3dacf3f1e0eef26915dd0acee707&s=json/'
+  url+=(locations)
+  $.get(url)
+  .then(function(data){
+    for (var i = 0; i < data.length; i++) {
+    brewery=data[Math.floor(Math.random()*data.length)]
+    brewery=(data[i].name+', '+data[i].street+', '+data[i].city+', '+data[i].state)
+  }
+    $('body').append("Looks like beer weather!  Try this brewery: "+brewery)
     })
     .catch(function(error){
       console.log(error);
