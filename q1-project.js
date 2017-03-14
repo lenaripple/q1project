@@ -2,12 +2,12 @@ $('document').ready(function(){
   $('#submitForm').on("click", findDate)
   $('#submitForm').on("click", findLocation)
   $('#submitForm').on("click", getForecast)
-  $('#submitForm').on("click", getBeer)
-
 });
 
 var locations;
 var date;
+var summary;
+var temp;
 
 function findDate(event){
   event.preventDefault()
@@ -30,25 +30,26 @@ function findLocation(event){
   else if (locations==="Vail"){
     locations ='39.6403,-106.3742'
   }
+  else if (locations==="Portland"){
+    locations ='43.6615,-70.2553'
+  }
   parseInt(locations)
   console.log(locations);
 }
 
-var summary;
-function getActivity(summary){
- summary = summary.toLowerCase()
- if (summary.includes('snow')||summary.includes('blizzard')||summary.includes('freezing')){
-   $('body').append("Go skiing!")
+function getActivity(temp){
+ if (temp<32){
+   //call skiing api function here
+   $('.activity').append("Go skiing!")
  }
- else if (summary.includes('no precipitation')||summary.includes('warm')) {
-   //call hiking api function here
-   $('body').append('Go for a hike!')
+ else if (temp>=50) {
+   getHike()
  }
- else if (summary.includes('rain')||summary.includes('dropping')){
+ else if (32<temp<50){
    getBeer()
  }
  else {
-   $('body').append("You should probably start over and try again.")
+   $('.activity').append("You should probably start over and try again.")
  }
 }
 
@@ -57,11 +58,14 @@ function  getForecast(){
   url +=(locations+'?currently')
   $.get(url)
   .then(function(data) {
-    summary = data.daily.summary
+    summary = data.daily.summary;
+    temp = data.currently.apparentTemperature
+    parseInt(temp);
     console.log(summary);
+    console.log(temp);
     })
-    .catch(function(error){
-      console.log(error);
+    .then(function(){
+      getActivity(temp);
     })
   }
 
@@ -73,11 +77,15 @@ function getBeer(){
     locations = 'boulder'
   }
   else if (locations==='37.9375,-107.8123'){
-    locations = 'Telluride';
+    locations = 'telluride';
   }
   else if (locations==='39.6403,-106.3742'){
     locations ='vail'
   }
+  else if (locations==="43.6615,-70.2553'"){
+    locations ='portland'
+  }
+
   var url = 'https://galvanize-cors.herokuapp.com/http://beermapping.com/webservice/locquery/7e4c3dacf3f1e0eef26915dd0acee707&s=json/'
   url+=(locations)
   $.get(url)
@@ -86,9 +94,34 @@ function getBeer(){
     brewery=data[Math.floor(Math.random()*data.length)]
     brewery=(data[i].name+', '+data[i].street+', '+data[i].city+', '+data[i].state)
   }
-    $('body').append("Looks like beer weather!  Try this brewery: "+brewery)
-    })
-    .catch(function(error){
-      console.log(error);
+    $('.activity').append("Current temperature is "+temp+". <br> Forecast is: "+summary+"<br>Looks like beer weather! <br> Try this brewery: "+brewery)
     })
   }
+
+  function getHike(){
+    // if (locations==='39.7392,-104.9903'){
+    //   locations = 'denver'
+    // }
+    // else if (locations==='40.0150,-105.2705'){
+    //   locations = 'boulder'
+    // }
+    // else if (locations==='37.9375,-107.8123'){
+    //   locations = 'telluride';
+    // }
+    // else if (locations==='39.6403,-106.3742'){
+    //   locations ='vail'
+    // }
+    // else if (locations==="43.6615,-70.2553'"){
+    //   locations ='portland'
+    // }
+    //
+    // var url = 'https://galvanize-cors.herokuapp.com/http://beermapping.com/webservice/locquery/7e4c3dacf3f1e0eef26915dd0acee707&s=json/'
+    // url+=(locations)
+    // $.get(url)
+    // .then(function(data){
+    //   for (var i = 0; i < data.length; i++) {
+    //   brewery=data[Math.floor(Math.random()*data.length)]
+    //   brewery=(data[i].name+', '+data[i].street+', '+data[i].city+', '+data[i].state)
+    // }
+      $('.activity').append("Current temperature is "+temp+". <br> Forecast is: "+summary+"<br>Looks like hiking weather! <br> Check this one out: ")
+    }

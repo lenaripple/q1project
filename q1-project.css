@@ -5,3 +5,25 @@ body {
   padding: 40px 15px;
   text-align: center;
 }
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.inputs{
+  display: flex;
+  flex-direction: column;
+  padding: 40px 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+article {
+  padding: 40px 15px;
+  align-items: center;
+  justify-content: center;
+  /*border: solid 2px;*/
+}
+.activity {
+  align-content: center;
+  justify-content: center;
+}
