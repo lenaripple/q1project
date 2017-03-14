@@ -9,6 +9,7 @@ var date;
 var summary;
 var temp;
 var hike;
+var ski;
 
 function findDate(event){
   event.preventDefault()
@@ -40,8 +41,7 @@ function findLocation(event){
 
 function getActivity(temp){
  if (temp<32){
-   //call skiing api function here
-   $('.activity').append("Fresh snow!  You should go skiing!")
+   getSkiing()
  }
  else if (temp>=50) {
    getHike()
@@ -95,7 +95,7 @@ function getBeer(){
     brewery=data[Math.floor(Math.random()*data.length)]
     brewery=(data[i].name+', '+data[i].street+', '+data[i].city+', '+data[i].state)
   }
-    $('.activity').append("Current temperature is "+temp+". <br> Forecast is: "+summary+"<br><br>Looks like beer weather! <br> Try this brewery: "+brewery)
+    $('.activity').append("Current temperature is "+temp+" degrees. <br> Forecast is: "+summary+"<br><br>Looks like beer weather! <br> Try this brewery: "+brewery)
     })
   }
 
@@ -136,5 +136,20 @@ function getBeer(){
             ]
     }
     hike = (hike[0].name+', '+hike[0].trailhead+', '+hike[0].miles+', '+hike[0].rating)
-      $('.activity').append("The current temperature is "+temp+". <br> The weekend forecast is: "+summary+"<br><br>Looks like hiking weather! <br> Check this one out: "+hike)
+      $('.activity').append("The current temperature is "+temp+" degrees. <br> The weekend forecast is: "+summary+"<br><br>Looks like hiking weather! <br> Check this trail out: "+hike)
     }
+
+function getSkiing(){
+  var url = 'http://api.worldweatheronline.com/premium/v1/search.ashx?key=6580809fbcb644169e0212704171403&q='
+  console.log(locations);
+  url+=(locations+'&wct=Ski&format=json')
+  $.get(url)
+  .then(function(data){
+    console.log(data);
+    for (var i = 0; i < data.length; i++) {
+    ski=data[Math.floor(Math.random()*data.length)]
+    ski=(data[i].search_api.result[i].areaName[i].value+', '+data[i].search_api.result[i].region[i].value)
+    }
+    $('.activity').append("Current temperature is "+temp+" degrees. <br> Forecast is: "+summary+"<br><br>Looks like awesome skiing weather! <br> Try this resort: "+ski)
+    })
+  }
