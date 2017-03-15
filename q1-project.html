@@ -1,46 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Q1 Project</title>
     <link rel="stylesheet" href="q1-project.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  </head>
+</head>
 
 <body>
-  <header>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    <header>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <!-- <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"></a>
-      </div>
-      <div id="navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div><!--/.nav-collapse -->
-    </div>
-  </nav>
-</header>
-<section>
-  <div class="container">
-    <div class="starter-template">
-      <h1>Title</h1>
-      <p class="lead">Not sure how best to spend your weekend?  Let us help!<br>Add your location and a date, and we'll tell you how to make the most of the weather.</p>
-    </div>
-    <div class="inputs text-center">
-    <form class="" action="q1-project.html" method="get">
-      <label for="location">Where Do You Want to Explore This Weekend?</label><br>
-      <select id='location' class="location" name="location">
+                    <a class="navbar-brand" href="#"></a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </nav>
+    </header>
+    <section>
+        <div class="container">
+            <div class="starter-template">
+                <h1>Working Title</h1>
+                <p class="lead">Not sure how best to spend your weekend? Let us help!<br>Add your location and a date, and we'll tell you how to make the most of the weather.</p>
+            </div>
+            <div class="inputs text-center">
+                <form class="" action="q1-project.html" method="get">
+                    <label for="location">Where Do You Want to Explore This Weekend?</label><br>
+                    <select id='location' class="location" name="location">
         <option value="Denver" selected>Denver</option>
         <option value="Boulder">Boulder</option>
         <option value="Telluride">Telluride</option>
@@ -49,25 +51,26 @@
         </optgroup>
       </optgroup>
       </select>
-      <br><br>
-      <label for="date">When?</label>
-      <br>
-      <input id='date' type="date" name="date" value="">
-      <br><br>
-      <input type="submit" name="submit" id="submitForm" value="Tell me what to do!">
-      <input type="reset" name="reset" value="Oops! Reset the fields.">
-  </form>
-  <div class="returns text-center">
-    <p class="activity">
-    </p>
-    <p class="photo img-responsive center-block">
-    </p>
-  </div>
-</div>
-</div><!-- /.container -->
-</section>
+                    <br><br>
+                    <label for="date">When?</label>
+                    <br>
+                    <input id='date' type="date" name="date" value="">
+                    <br><br>
+                    <input class="text-center" type="submit" name="submit" id="submitForm" value="Tell me what to do!">
+                    <input class="text-center" type="reset" name="reset" value="Oops! Reset the fields.">
+                </form>
+                <div class="returns text-center">
+                    <p class="activity">
+                    </p>
+                    <p class="photo img-responsive center-block">
+                    </p>
+                </div>
+            </div>
+        </div><!-- /.container -->
+    </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="q1-project.js"></script>
 </body>
+
 </html>

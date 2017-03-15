@@ -1,18 +1,19 @@
 body {
-  padding-top: 100px;
+  padding-top: 10px;
+}
+section {
 }
 .starter-template {
-  padding: 40px 15px;
+  padding: 50px 15px 30px 15px;
   text-align: center;
 }
-.container {
-  flex-direction: column;
+button{
+  margin: 10px 5px;
 }
 .inputs{
-  display: flex;
-  flex-direction: column;
-  padding: 40px 15px;
-  box-sizing: border-box;
+  padding: 30px 10px;
+  border-color: black;
+  border-width: thin;
 }
 article {
   padding: 40px 15px;
