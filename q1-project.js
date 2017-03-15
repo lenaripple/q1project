@@ -117,44 +117,56 @@ function getBeer(){
   }
 
 function getHike(){
+  var img = document.createElement('img');
   if (locations==='39.7392,-104.9903'|| locations==='denver'){
     hike = [{name:'Staunton Ranch and Bugling Elk Loop',
             trailhead:'Staunton State Park, 12102 South Elk Creek Road, Pine, CO 80470',
             miles:'8.6 miles long',
-            rating: 'rated as a moderate hike'}
+            rating: 'rated as a moderate hike',
+            img: img.src = 'http://4.bp.blogspot.com/-kUmhzB7iTLs/U5aFAeWoyiI/AAAAAAAAHbQ/YdxQMdBbDvo/s1600/DSC00104-1.jpg'
+          }
           ]
   }
   else if (locations==='40.0150,-105.2705'|| locations==='boulder'){
     hike = [{name:'Shadow Canyon Trail to South Boulder Peak',
             trailhead:'South Mesa Trailhead, 3633-, 4111 Eldorado Springs Dr, Boulder, CO 80303',
             miles:'8.1 miles long',
-            rating: 'rated as a difficult hike'}
+            rating: 'rated as a difficult hike',
+            img: img.src = 'http://www.danieljoderphotography.com/wp-content/uploads/2014/11/201411206257-eThe-View-South-at-Sunrise.jpg'
+          }
           ]
   }
   else if (locations==='37.9375,-107.8123'|| locations==='telluride'){
     hike = [{name:'Blue Lakes Trail',
             trailhead:'Blue Lakes Trailhead, Dallas Creek Road off Highway 62',
             miles:'6.3 miles long',
-            rating: 'rated as a moderate hike'}
+            rating: 'rated as a moderate hike',
+            img: img.src = 'https://cdn.apstatic.com/photos/hike/27/4/7002704_smallMed_49d3ca1429029345.jpg'
+          }
           ]
   }
   else if (locations==='39.6403,-106.3742'|| locations==='vail'){
     hike = [{name:'Berrypicker Trail',
             trailhead:'8 Lionshead Pl, Vail, CO 81657',
             miles:'6.1 miles long',
-            rating: 'rated as a difficult hike'}
+            rating: 'rated as a difficult hike',
+            img:img.src ='http://17410-presscdn-0-76.pagely.netdna-cdn.com/wp-content/uploads/2015/06/BerryPicker.jpg'
+          }
           ]
   }
   else if (locations==="43.6615,-70.2553"||locations==='portland'){
     hike = [{name:'Mount Katahdin and Hamlin Peak Loop',
             trailhead:'Chimney Pond Trail, Millinocket, ME 04462',
             miles:'10.0 miles long',
-            rating: 'rated as a difficult hike'}
+            rating: 'rated as a difficult hike',
+            img:img.src = 'http://4000footers.com/photo%20katahdin9.jpg'
+          }
           ]
-                
   }
   hike = (hike[0].name+', '+hike[0].trailhead+', '+hike[0].miles+', '+hike[0].rating)
+  photo = hike[0].photo
     $('.activity').append("The high will be "+temp+" degrees. <br> The weekend forecast is: "+summary+"<br><br>Looks like hiking weather! <br> Check this trail out: "+hike)
+    $('.photo').append(img)
   }
 
 function getSkiing(){
