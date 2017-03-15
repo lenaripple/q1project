@@ -2,6 +2,7 @@ $('document').ready(function() {
     $('#submitForm').on("click", findDate)
     $('#submitForm').on("click", findLocation)
     $('#submitForm').on("click", getForecast)
+    $('#submitForm').on("click", clearPage)
 });
 
 var locations;
@@ -14,6 +15,7 @@ var year;
 var month;
 var day;
 var time = 'T[14]:[00]:[00]'
+var img = document.createElement('img');
 
 function findDate(event) {
     event.preventDefault()
@@ -34,8 +36,8 @@ function findLocation(event) {
         locations = '37.9375,-107.8123';
     } else if (locations === "Vail") {
         locations = '39.6403,-106.3742';
-    } else if (locations === "Portland") {
-        locations = '43.6615,-70.2553';
+    } else if (locations === "Burlington") {
+        locations = '44.4759,-73.2121';
     }
     parseInt(locations)
     console.log(locations);
@@ -56,7 +58,6 @@ function getActivity(temp) {
 function getForecast() {
     var url = 'https://galvanize-cors.herokuapp.com/https://api.darksky.net/forecast/5816e128ecf24590e8e5af9d7b34dc03/'
     url += (locations + '?' + '[' + year + ']' + '-' + '[' + month + ']' + '-' + '[' + day + ']' + time + '?currently')
-    console.log(url);
     $.get(url)
         .then(function(data) {
             console.log(data);
@@ -71,6 +72,18 @@ function getForecast() {
         })
 }
 
+function getSkiing() {
+    var url = 'http://api.worldweatheronline.com/premium/v1/search.ashx?key=6580809fbcb644169e0212704171403&q='
+    url += (locations + '&wct=Ski&format=json')
+    $.get(url)
+        .then(function(data) {
+          resortList = data.search_api.result
+          var randomResort = resortList[Math.floor(Math.random() * resortList.length)]
+          ski = (randomResort.areaName["0"].value+', '+randomResort.region["0"].value)
+    $('.activity').append("The high will be " + temp + " degrees. <br> Forecast is: " + summary + "<br><br>Looks like awesome skiing weather! <br> Try this resort: " + ski)
+  })
+}
+
 function getBeer() {
     if (locations === '39.7392,-104.9903') {
         locations = 'denver'
@@ -80,23 +93,20 @@ function getBeer() {
         locations = 'telluride';
     } else if (locations === '39.6403,-106.3742') {
         locations = 'vail'
-    } else if (locations === "43.6615,-70.2553'") {
-        locations = 'portland'
+    } else if (locations === "44.4759,-73.2121'") {
+        locations = 'burlington'
     }
     var url = 'https://galvanize-cors.herokuapp.com/http://beermapping.com/webservice/locquery/7e4c3dacf3f1e0eef26915dd0acee707&s=json/'
     url += (locations)
     $.get(url)
         .then(function(data) {
-            for (var i = 0; i < data.length; i++) {
-                brewery = data[Math.floor(Math.random() * data.length)]
-                brewery = (data[i].name + ', ' + data[i].street + ', ' + data[i].city + ', ' + data[i].state)
-            }
-            $('.activity').append("The high will be " + temp + " degrees. <br> Forecast is: " + summary + "<br><br>The weather looks pretty lame. Better start drinking! <br> Try this brewery: " + brewery)
+            var brewery = data[Math.floor(Math.random() * data.length)]
+            goTo = (brewery.name + ', ' + brewery.street + ', ' + brewery.city + ', ' + brewery.state)
+            $('.activity').append("The high will be " + temp + " degrees. <br> Forecast is: " + summary + "<br><br>The weather looks pretty lame. Better start drinking! <br> Try this brewery: " + goTo)
         })
 }
 
 function getHike() {
-    var img = document.createElement('img');
     if (locations === '39.7392,-104.9903' || locations === 'denver') {
         hike = [{
             name: 'Staunton Ranch and Bugling Elk Loop',
@@ -108,7 +118,7 @@ function getHike() {
     } else if (locations === '40.0150,-105.2705' || locations === 'boulder') {
         hike = [{
             name: 'Shadow Canyon Trail to South Boulder Peak',
-            trailhead: 'South Mesa Trailhead, 3633-, 4111 Eldorado Springs Dr, Boulder, CO 80303',
+            trailhead: 'South Mesa Trailhead, 3633-4111 Eldorado Springs Dr, Boulder, CO 80303',
             miles: '8.1 miles long',
             rating: 'rated as a difficult hike',
             img: img.src = 'http://www.danieljoderphotography.com/wp-content/uploads/2014/11/201411206257-eThe-View-South-at-Sunrise.jpg'
@@ -129,32 +139,22 @@ function getHike() {
             rating: 'rated as a difficult hike',
             img: img.src = 'http://17410-presscdn-0-76.pagely.netdna-cdn.com/wp-content/uploads/2015/06/BerryPicker.jpg'
         }]
-    } else if (locations === "43.6615,-70.2553" || locations === 'portland') {
+    } else if (locations === "44.4759,-73.2121" || locations === 'burlington') {
         hike = [{
-            name: 'Mount Katahdin and Hamlin Peak Loop',
-            trailhead: 'Chimney Pond Trail, Millinocket, ME 04462',
-            miles: '10.0 miles long',
+            name: 'Mount Mansfield Loop Trail',
+            trailhead: '2236-2428 Mountain Rd, Underhill, VT 05489',
+            miles: '8.0 miles long',
             rating: 'rated as a difficult hike',
-            img: img.src = 'http://4000footers.com/photo%20katahdin9.jpg'
+            img: img.src = 'https://robmcwilliams.files.wordpress.com/2014/12/top-of-sunset-ridge-trail-mt-mansfield.jpg'
         }]
     }
-    hike = (hike[0].name + ', ' + hike[0].trailhead + ', ' + hike[0].miles + ', ' + hike[0].rating)
+    recommendedHike = [hike[0].name, hike[0].trailhead, hike[0].miles, hike[0].rating]
     photo = hike[0].photo
-    $('.activity').append("The high will be " + temp + " degrees. <br> The weekend forecast is: " + summary + "<br><br>Looks like hiking weather! <br> Check this trail out: " + hike)
+    $('.activity').append("The high will be " + temp + " degrees. <br> The weekend forecast is: " + summary + "<br><br>Looks like hiking weather! <br> Check this trail out: " + recommendedHike[0]+' at '+ recommendedHike[1]+'.  It is '+recommendedHike[2]+' and is '+recommendedHike[3]+'.')
     $('.photo').append(img)
 }
 
-function getSkiing() {
-    var url = 'http://api.worldweatheronline.com/premium/v1/search.ashx?key=6580809fbcb644169e0212704171403&q='
-    url += (locations + '&wct=Ski&format=json')
-    $.get(url)
-        .then(function(data) {
-            for (var k = 0; k < data.length; k++) {
-                console.log(data);
-                ski = data[Math.floor(Math.random() * data.length)]
-                ski = (data[k].search_api.result[j].areaName[j].value)
-            }
-            console.log(ski);
-            $('.activity').append("The high will be " + temp + " degrees. <br> Forecast is: " + summary + "<br><br>Looks like awesome skiing weather! <br> Try this resort: " + ski)
-        })
+function clearPage(){
+  $('.activity').empty()
+  $('.photo').empty()
 }
