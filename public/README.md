@@ -1,8 +1,11 @@
 
 # Q1 Project
 
+## Deployed link
+https://q1-lena-ripple.firebaseapp.com/
+
 ## Project Description
-This web app suggests weekend activities to people based on their location and local weather forecast.  Users input their location and desired date for the activity, and then receive suggestions.  For example: if it is going to snow, they should go skiing.  If rain, the web app will suggest a local brewery.  If sunny, it will suggest a hike nearby.
+Weather to Adventure is a web app suggests weekend activities to people based on their location and local weather forecast.  Users input their location and desired date for the activity, and then receive suggestions.  For example: if it is going to snow, they should go skiing.  If rain, the web app will suggest a local brewery.  If sunny, it will suggest a hike nearby.
 
 ## APIs
 * Dark Sky

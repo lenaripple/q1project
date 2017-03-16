@@ -106,7 +106,7 @@ function getBeer() {
             console.log(data);
             var brewery = data[Math.floor(Math.random() * data.length)]
             goTo = (brewery.name + ', ' + brewery.street + ', ' + brewery.city + ', ' + brewery.state)
-            $('.activity').append("The high will be " + temp + " degrees. <br> Forecast is: " + summary + "<br><br>The weather looks pretty lame. Better start drinking! <br> Try this place: " + goTo)
+            $('.activity').append("The high will be " + temp + " degrees. <br> Forecast is: " + summary + "<br><br>The weather is just okay. It's a good day to try a new brewery! <br> Try this place: " + goTo)
         })
     $('.photo').append(img)
 }
