@@ -81,7 +81,7 @@ function getSkiing() {
             resortList = data.search_api.result
             var randomResort = resortList[Math.floor(Math.random() * resortList.length)]
             ski = (randomResort.areaName["0"].value + ', ' + randomResort.region["0"].value)
-            $('.activity').append("The high will be " + temp + " degrees. <br> Forecast is: " + summary + "<br><br>Looks like awesome skiing weather! <br> Try this resort: " + ski)
+            $('.activity').append("The high will be " + temp + " degrees. <br> Forecast is: " + summary + "<br><br>Looks like awesome skiing weather! <br><br> Try this resort: " + ski)
         })
     $('.photo').append(img)
 }
@@ -106,7 +106,7 @@ function getBeer() {
             console.log(data);
             var brewery = data[Math.floor(Math.random() * data.length)]
             goTo = (brewery.name + ', ' + brewery.street + ', ' + brewery.city + ', ' + brewery.state)
-            $('.activity').append("The high will be " + temp + " degrees. <br> Forecast is: " + summary + "<br><br>The weather is just okay. It's a good day to try a new brewery! <br> Try this place: " + goTo)
+            $('.activity').append("The high will be " + temp + " degrees. <br> Forecast is: " + summary + "<br><br>The weather is just okay. It's a good day to try a new brewery! <br><br> Try this place: " + goTo)
         })
     $('.photo').append(img)
 }
@@ -155,7 +155,7 @@ function getHike() {
     }
     recommendedHike = [hike[0].name, hike[0].trailhead, hike[0].miles, hike[0].rating]
     photo = hike[0].photo
-    $('.activity').append("The high will be " + temp + " degrees. <br> The weekend forecast is: " + summary + "<br><br>Looks like hiking weather! <br> Check this trail out: " + recommendedHike[0] + ' at ' + recommendedHike[1] + '.  It is ' + recommendedHike[2] + ' and is ' + recommendedHike[3] + '.')
+    $('.activity').append("The high will be " + temp + " degrees. <br> The weekend forecast is: " + summary + "<br><br>Looks like hiking weather! <br><br> Check this trail out: " + recommendedHike[0] + '. <br>The trailhead is at ' + recommendedHike[1] + '.  <br>It is ' + recommendedHike[2] + ' and is ' + recommendedHike[3] + '.')
     $('.photo').append(img)
 }
 
