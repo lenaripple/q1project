@@ -87,7 +87,7 @@ function getSkiing() {
 }
 
 function getBeer() {
-    img.src = 'http://dicksbeer.com/wp-content/uploads/2014/09/brewerytour22.png'
+    img.src = 'https://dicksbeer.com/wp-content/uploads/2014/09/brewerytour22.png'
     if (locations === '39.7392,-104.9903') {
         locations = 'denver'
     } else if (locations === '40.0150,-105.2705') {
@@ -118,7 +118,7 @@ function getHike() {
             trailhead: 'Staunton State Park, 12102 South Elk Creek Road, Pine, CO 80470',
             miles: '8.6 miles long',
             rating: 'rated as a moderate hike',
-            img: img.src = 'http://4.bp.blogspot.com/-kUmhzB7iTLs/U5aFAeWoyiI/AAAAAAAAHbQ/YdxQMdBbDvo/s1600/DSC00104-1.jpg'
+            img: img.src = '//4.bp.blogspot.com/-kUmhzB7iTLs/U5aFAeWoyiI/AAAAAAAAHbQ/YdxQMdBbDvo/s1600/DSC00104-1.jpg'
         }]
     } else if (locations === '40.0150,-105.2705' || locations === 'boulder') {
         hike = [{
@@ -126,7 +126,7 @@ function getHike() {
             trailhead: 'South Mesa Trailhead, 3633-4111 Eldorado Springs Dr, Boulder, CO 80303',
             miles: '8.1 miles long',
             rating: 'rated as a difficult hike',
-            img: img.src = 'http://www.danieljoderphotography.com/wp-content/uploads/2014/11/201411206257-eThe-View-South-at-Sunrise.jpg'
+            img: img.src = 'https://www.danieljoderphotography.com/wp-content/uploads/2014/11/201411206257-eThe-View-South-at-Sunrise.jpg'
         }]
     } else if (locations === '37.9375,-107.8123' || locations === 'telluride') {
         hike = [{
@@ -142,7 +142,7 @@ function getHike() {
             trailhead: '8 Lionshead Pl, Vail, CO 81657',
             miles: '6.1 miles long',
             rating: 'rated as a difficult hike',
-            img: img.src = 'http://17410-presscdn-0-76.pagely.netdna-cdn.com/wp-content/uploads/2015/06/BerryPicker.jpg'
+            img: img.src = 'https://17410-presscdn-0-76.pagely.netdna-cdn.com/wp-content/uploads/2015/06/BerryPicker.jpg'
         }]
     } else if (locations === "44.4759,-73.2121" || locations === 'burlington') {
         hike = [{
