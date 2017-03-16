@@ -87,7 +87,7 @@ function getSkiing() {
 }
 
 function getBeer() {
-    img.src = 'https://dicksbeer.com/wp-content/uploads/2014/09/brewerytour22.png'
+    img.src = 'http://dicksbeer.com/wp-content/uploads/2014/09/brewerytour22.png'
     if (locations === '39.7392,-104.9903') {
         locations = 'denver'
     } else if (locations === '40.0150,-105.2705') {
@@ -126,7 +126,7 @@ function getHike() {
             trailhead: 'South Mesa Trailhead, 3633-4111 Eldorado Springs Dr, Boulder, CO 80303',
             miles: '8.1 miles long',
             rating: 'rated as a difficult hike',
-            img: img.src = 'https://www.danieljoderphotography.com/wp-content/uploads/2014/11/201411206257-eThe-View-South-at-Sunrise.jpg'
+            img: img.src = 'http://www.danieljoderphotography.com/wp-content/uploads/2014/11/201411206257-eThe-View-South-at-Sunrise.jpg'
         }]
     } else if (locations === '37.9375,-107.8123' || locations === 'telluride') {
         hike = [{
