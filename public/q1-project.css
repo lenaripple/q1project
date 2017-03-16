@@ -9,9 +9,17 @@ body {
   background-repeat: no-repeat;
   background-size: contain;*/
 	}
+  h1{
+    padding-bottom: 40px;
+  }
+.lead {
+  padding: 40px 15px;
+  background-color: darkslategrey;
+  color: white;
+}
 
 .starter-template {
-  padding: 50px 15px 30px 15px;
+  padding: 30px 15px;
   text-align: center;
 }
 
@@ -32,6 +40,8 @@ article {
 
 .activity {
   padding: 40px 15px;
+  border-color: black;
+  border-width: thin;
 }
 
 img{
