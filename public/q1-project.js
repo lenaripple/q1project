@@ -61,7 +61,7 @@ function getForecast() {
     $.get(url)
         .then(function(data) {
             console.log(data);
-            summary = data.daily.summary;
+            summary = data.currently.summary;
             temp = data.daily.data[0].apparentTemperatureMax
             parseInt(temp);
             console.log(summary);
