@@ -74,7 +74,7 @@ function getForecast() {
 
 function getSkiing() {
     img.src = 'https://telluridecoloradorealestate.files.wordpress.com/2012/11/skirg12_res17_telluride_r12.jpg'
-    var url = 'http://api.worldweatheronline.com/premium/v1/search.ashx?key=6580809fbcb644169e0212704171403&q='
+    var url = 'https://api.worldweatheronline.com/premium/v1/search.ashx?key=6580809fbcb644169e0212704171403&q='
     url += (locations + '&wct=Ski&format=json')
     $.get(url)
         .then(function(data) {
