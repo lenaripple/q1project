@@ -118,7 +118,7 @@ function getHike() {
             trailhead: 'Staunton State Park, 12102 South Elk Creek Road, Pine, CO 80470',
             miles: '8.6 miles long',
             rating: 'rated as a moderate hike',
-            img: img.src = '//4.bp.blogspot.com/-kUmhzB7iTLs/U5aFAeWoyiI/AAAAAAAAHbQ/YdxQMdBbDvo/s1600/DSC00104-1.jpg'
+            img: img.src = 'http://4.bp.blogspot.com/-kUmhzB7iTLs/U5aFAeWoyiI/AAAAAAAAHbQ/YdxQMdBbDvo/s1600/DSC00104-1.jpg'
         }]
     } else if (locations === '40.0150,-105.2705' || locations === 'boulder') {
         hike = [{
