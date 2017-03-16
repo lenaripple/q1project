@@ -1,56 +1,69 @@
 body {
-  font-family: 'Advent Pro', sans-serif;
+    font-family: 'Raleway', sans-serif !important;
+    hover:
 }
 
-.background-image{
-  background-color: azure;
-  /*background-image:url('https://images.unsplash.com/photo-1473220464492-452fb02e6221?');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;*/
-	}
-  h1{
+.background-image {
+    background-color: azure;
+}
+
+h1 {
+    font-weight: 500;
     padding-bottom: 40px;
-  }
+}
+
 .lead {
-  padding: 40px 15px;
-  background-color: darkslategrey;
-  color: white;
+    padding: 40px 15px;
+    background-color: darkslategrey;
+    color: white;
 }
 
 .starter-template {
-  padding: 30px 15px;
-  text-align: center;
+    padding: 30px 15px;
+    text-align: center;
 }
 
-button{
-  margin: 10px 5px;
+button {
+    margin: 10px 5px;
 }
 
-.inputs{
-  padding: 30px 10px;
-  border-color: black;
-  border-width: thin;
+form {
+    font-weight: 400;
+    padding: 30px 10px;
+    border-color: teal !important;
+    border-width: thin !important;
+}
+
+.inputs {
+    box-sizing: border-box;
+    padding: 30px 20px;
+    border-color: teal !important;
+    border-width: thin !important;
 }
 
 article {
-  padding: 40px 15px;
-  align-items: center;
+    padding: 40px 15px;
+    align-items: center;
 }
 
 .activity {
-  padding: 40px 15px;
-  border-color: black;
-  border-width: thin;
+    padding: 40px 15px;
+    border-color: black;
+    border-width: thin;
 }
 
-img{
-  padding: 15px;
-  box-sizing: content-box;
-  width: 550px;
-  height: 400px;
+img {
+    padding: 15px;
+    box-sizing: content-box;
+    width: 550px;
+    height: 400px;
 }
 
 .img-responsive {
-  width: 100% \9;
+    width: 100% \9;
+}
+
+input:hover, select:hover{
+	font-weight: bold;
+	cursor: default !important;
 }

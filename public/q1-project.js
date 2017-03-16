@@ -73,21 +73,21 @@ function getForecast() {
 }
 
 function getSkiing() {
-  img.src='https://telluridecoloradorealestate.files.wordpress.com/2012/11/skirg12_res17_telluride_r12.jpg'
+    img.src = 'https://telluridecoloradorealestate.files.wordpress.com/2012/11/skirg12_res17_telluride_r12.jpg'
     var url = 'http://api.worldweatheronline.com/premium/v1/search.ashx?key=6580809fbcb644169e0212704171403&q='
     url += (locations + '&wct=Ski&format=json')
     $.get(url)
         .then(function(data) {
-          resortList = data.search_api.result
-          var randomResort = resortList[Math.floor(Math.random() * resortList.length)]
-          ski = (randomResort.areaName["0"].value+', '+randomResort.region["0"].value)
-    $('.activity').append("The high will be " + temp + " degrees. <br> Forecast is: " + summary + "<br><br>Looks like awesome skiing weather! <br> Try this resort: " + ski)
-  })
-  $('.photo').append(img)
+            resortList = data.search_api.result
+            var randomResort = resortList[Math.floor(Math.random() * resortList.length)]
+            ski = (randomResort.areaName["0"].value + ', ' + randomResort.region["0"].value)
+            $('.activity').append("The high will be " + temp + " degrees. <br> Forecast is: " + summary + "<br><br>Looks like awesome skiing weather! <br> Try this resort: " + ski)
+        })
+    $('.photo').append(img)
 }
 
 function getBeer() {
-  img.src='http://dicksbeer.com/wp-content/uploads/2014/09/brewerytour22.png'
+    img.src = 'http://dicksbeer.com/wp-content/uploads/2014/09/brewerytour22.png'
     if (locations === '39.7392,-104.9903') {
         locations = 'denver'
     } else if (locations === '40.0150,-105.2705') {
@@ -103,12 +103,12 @@ function getBeer() {
     url += (locations)
     $.get(url)
         .then(function(data) {
-          console.log(data);
+            console.log(data);
             var brewery = data[Math.floor(Math.random() * data.length)]
             goTo = (brewery.name + ', ' + brewery.street + ', ' + brewery.city + ', ' + brewery.state)
             $('.activity').append("The high will be " + temp + " degrees. <br> Forecast is: " + summary + "<br><br>The weather looks pretty lame. Better start drinking! <br> Try this place: " + goTo)
         })
-        $('.photo').append(img)
+    $('.photo').append(img)
 }
 
 function getHike() {
@@ -155,11 +155,11 @@ function getHike() {
     }
     recommendedHike = [hike[0].name, hike[0].trailhead, hike[0].miles, hike[0].rating]
     photo = hike[0].photo
-    $('.activity').append("The high will be " + temp + " degrees. <br> The weekend forecast is: " + summary + "<br><br>Looks like hiking weather! <br> Check this trail out: " + recommendedHike[0]+' at '+ recommendedHike[1]+'.  It is '+recommendedHike[2]+' and is '+recommendedHike[3]+'.')
+    $('.activity').append("The high will be " + temp + " degrees. <br> The weekend forecast is: " + summary + "<br><br>Looks like hiking weather! <br> Check this trail out: " + recommendedHike[0] + ' at ' + recommendedHike[1] + '.  It is ' + recommendedHike[2] + ' and is ' + recommendedHike[3] + '.')
     $('.photo').append(img)
 }
 
-function clearPage(){
-  $('.activity').empty()
-  $('.photo').empty()
+function clearPage() {
+    $('.activity').empty()
+    $('.photo').empty()
 }
