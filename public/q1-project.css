@@ -1,0 +1,46 @@
+body {
+  font-family: 'Advent Pro', sans-serif;
+}
+
+.background-image{
+  background-color: azure;
+  /*background-image:url('https://images.unsplash.com/photo-1473220464492-452fb02e6221?');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;*/
+	}
+
+.starter-template {
+  padding: 50px 15px 30px 15px;
+  text-align: center;
+}
+
+button{
+  margin: 10px 5px;
+}
+
+.inputs{
+  padding: 30px 10px;
+  border-color: black;
+  border-width: thin;
+}
+
+article {
+  padding: 40px 15px;
+  align-items: center;
+}
+
+.activity {
+  padding: 40px 15px;
+}
+
+img{
+  padding: 15px;
+  box-sizing: content-box;
+  width: 550px;
+  height: 400px;
+}
+
+.img-responsive {
+  width: 100% \9;
+}
